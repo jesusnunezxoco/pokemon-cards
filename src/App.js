@@ -8,7 +8,6 @@ import PokeInfo from "./components/PokeInfo";
 import Favorites from "./components/Favorites";
 import Card from "react-bootstrap/Card";
 
-
 function App() {
   let endpoint = "https://pokeapi.co/api/v2";
   let [pokeCards, setPokeCards] = useState([
@@ -25,6 +24,7 @@ function App() {
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
     },
   ]);
+  let [favorite, setFavorite] = useState({ favorite: false });
 
   useEffect(() => {
     // get pokemon urls
@@ -49,12 +49,17 @@ function App() {
   const cards = pokeCards.map((card) => (
     <Card style={{ width: "18rem" }} key={`Pokecard${card.id}`}>
       <Link to={`/pokemon-species/${card.id}`}>
-      <Card.Img variant="top" src={card.image} />
+        <Card.Img variant="top" src={card.image} />
+      </Link>
       <Card.Body>
-        <Card.Title>{card.name}</Card.Title>
-        <Card.Text>{card.id}</Card.Text>
-      </Card.Body>
+        <Link to={`/pokemon-species/${card.id}`}>
+          <Card.Title class="pokeName">
+            #{card.id} {card.name}
+          </Card.Title>
+
+          <Card.Text></Card.Text>
         </Link>
+      </Card.Body>
     </Card>
   ));
 
@@ -66,7 +71,7 @@ function App() {
     gridGap: "1em",
     paddingTop: "1.5em",
     backgroundColor: "#3B4CCA",
-    color: "yellow"
+    color: "red",
   };
 
   return (
