@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import PokeNav from "./components/PokeNav";
+import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import PokeInfo from "./components/PokeInfo";
 import Favorites from "./components/Favorites";
@@ -77,7 +77,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <PokeNav />
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Search />
@@ -88,7 +88,7 @@ function App() {
           <Route path="/pokemon-species/:id" component={PokeInfo} />
         </Switch>
 
-        <PokeNav />
+        <Navbar />
       </div>
     </Router>
   );

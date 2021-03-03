@@ -71,9 +71,7 @@ export default function PokeInfo(props) {
       });
   }, [endpoint, pagePokeId]);
 
-  useEffect(() => {
-    console.log(pokemon);
-  }, [pokemon]);
+
 
   // const types = pokemon.types.map(t => t.type.name).join(" | ")
 
